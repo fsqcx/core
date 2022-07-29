@@ -1,17 +1,31 @@
 {
-  "name": "Home Assistant Dev",
+  "name": "Home Assistant Dev fsqcx_core",
   "context": "..",
   "dockerFile": "../Dockerfile.dev",
   "postCreateCommand": "script/setup",
   "postStartCommand": "script/bootstrap",
   "containerEnv": { "DEVCONTAINER": "1" },
   "appPort": 8123,
-  "runArgs": ["-e", "GIT_EDITOR=code --wait"],
+  "workspaceFolder": "",
+  "runArgs": [
+    "-e",
+    "GIT_EDITOR=code --wait",
+    "--network=ipvlan",
+    "--name=vsc-fsqcx_core"
+  ],
   "extensions": [
     "ms-python.vscode-pylance",
     "visualstudioexptteam.vscodeintellicode",
     "redhat.vscode-yaml",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "waderyan.gitblame",
+    "donjayamanne.git-extension-pack",
+    "felipecaputo.git-project-manager",
+    "codezombiech.gitignore",
+    "howardzuo.vscode-git-tags",
+    "paragdiwan.gitpatch"
   ],
   // Please keep this file in sync with settings in home-assistant/.vscode/settings.default.json
   "settings": {
@@ -23,7 +37,7 @@
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "files.trimTrailingWhitespace": true,
+    "explorer.fileNesting.enabled": true,
     "terminal.integrated.profiles.linux": {
       "zsh": {
         "path": "/usr/bin/zsh"
